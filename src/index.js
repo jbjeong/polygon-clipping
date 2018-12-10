@@ -39,11 +39,16 @@ export default function doIt (operationType, geom, moreGeoms) {
   /* Pass the sweep line over those endpoints */
   const sweepLine = new SweepLine()
   let node
+  let prevSize = queue.size
   while (node = queue.pop()) {
     const newEvents = sweepLine.process(node.key)
+    if (queue.size === prevSize && newEvents.length === 0) {
+        break
+    }
     for (let i = 0, iMax = newEvents.length; i < iMax; i++) {
       queue.insert(newEvents[i])
     }
+    prevSize = queue.size
   }
 
   /* Collect and compile segments we're keeping into a multipolygon */
