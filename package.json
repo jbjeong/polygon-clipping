@@ -29,7 +29,7 @@
     "geometry",
     "martinez"
   ],
-  "repository": "github:mfogel/polygon-clipping",
+  "repository": "github:jbjeong/polygon-clipping",
   "author": "Mike Fogel <mike@fogel.ca>",
   "license": "MIT",
   "devDependencies": {
